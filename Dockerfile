@@ -26,4 +26,3 @@ EXPOSE 5900
 #Do a launch script
 
 ADD launch.sh /usr/local/bin
-RUN chmod a+x /usr/local/bin/launch.sh
