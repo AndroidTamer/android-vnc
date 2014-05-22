@@ -2,10 +2,10 @@ FROM ksoichiro/android
 
 MAINTAINER Subho "subho.halder@gmail.com"
 
-RUN echo y | android update sdk --filter platform-tools,build-tools-19.0.3,sysimg-17,android-17,extra-android-support --no-ui --force
+RUN echo y | android update sdk --filter platform-tools,build-tools-19.0.3,sysimg-17,android-17,addon-google_apis-google-17,extra-android-m2repository,extra-android-support,extra-google-admob_ads_sdk,extra-google-analytics_sdk_v2,extra-google-google_play_services,extra-google-m2repository,extra-google-play_apk_expansion,extra-google-play_billing,extra-google-play_licensing,extra-android-support --no-ui --force
 
 # Set up and run emulator
-RUN echo no | android create avd --force -n test -t android-17
+RUN echo no | android create avd --force -n test -t android-17  -t 12 -c 100M -s 480x800
 # Avoid emulator assumes HOME as '/'.
 ENV HOME /root
 ADD wait-for-emulator /usr/local/bin/
