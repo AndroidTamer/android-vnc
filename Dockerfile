@@ -26,3 +26,4 @@ EXPOSE 5900
 #Do a launch script
 
 ADD launch.sh /root/launch.sh
+RUN chmod 755 /root/launch.sh
