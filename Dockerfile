@@ -15,7 +15,7 @@ RUN mkdir -p /opt/tmp && android create project -g -v 0.9.+ -a MainActivity -k c
 #RUN cd /opt/tmp && ./gradlew tasks
 RUN rm -rf /opt/tmp
 
-RUN     apt-get update
+RUN     apt-get update -y
 
 # Install vnc, xvfb in order to create a 'fake' display and firefox
 RUN     apt-get install -y x11vnc xvfb
