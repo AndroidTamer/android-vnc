@@ -25,4 +25,4 @@ RUN     x11vnc -storepasswd 1234 ~/.vnc/passwd
 EXPOSE 5900
 #Do a launch script
 
-ADD launch.sh launch.sh
+ADD launch.sh /root/launch.sh
