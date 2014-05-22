@@ -24,7 +24,6 @@ RUN     mkdir ~/.vnc
 RUN     x11vnc -storepasswd 1234 ~/.vnc/passwd
 EXPOSE 5900
 #Do a launch script
-RUN     bash -c 'echo "#!/bin/bash
-Xvfb :0 -extension GLX -screen 0 1024x780x24& DISPLAY=:0 emulator -avd &
-x11vnc -usepw -display :1
-exit 0" >> ~/launch.sh'
+
+ADD launch.sh /usr/local/bin
+RUN chmod a+x /usr/local/bin/launch.sh
