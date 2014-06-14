@@ -11,7 +11,7 @@ RUN rm -rf /opt/android-sdk-linux/platform-tools
 RUN ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | android update sdk --filter platform-tools,build-tools-19.0.3,sysimg-17,android-17,addon-google_apis-google-17,extra-google-admob_ads_sdk,extra-google-analytics_sdk_v2,extra-google-google_play_services,extra-google-play_apk_expansion,extra-google-play_billing,extra-google-play_licensing --no-ui --force
 
 # Set up and run emulator
-RUN echo no | android create avd --snapshot --force -n test -t "Google Inc.:Google APIs:17" -c 100M -s 480x800 -a
+RUN echo no | android create avd --snapshot --force -n test -t "Google Inc.:Google APIs:17" -c 512M -s 480x800 -a
 # Avoid emulator assumes HOME as '/'.
 ENV HOME /root
 ADD wait-for-emulator /root/
