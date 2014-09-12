@@ -11,7 +11,20 @@ RUN apt-get clean
 RUN rm -rf /opt/android-sdk-linux/temp
 RUN rm -rf /opt/android-sdk-linux/platform-tools
 
-RUN ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | android update sdk --filter platform-tools,build-tools-20,sysimg-17,android-17,addon-google_apis-google-17,extra-google-admob_ads_sdk,extra-google-analytics_sdk_v2,extra-google-google_play_services,extra-google-play_apk_expansion,extra-google-play_billing,extra-google-play_licensing --no-ui --force
+RUN echo y | android update sdk -a -u -f -t tools
+RUN echo y | android update sdk -a -u -f -t platform-tools
+RUN echo y | android update sdk -a -u -f -t build-tools-19.1.0
+RUN echo y | android update sdk -a -u -f -t android-19
+RUN echo y | android update sdk -a -u -f -t sysimg-19
+RUN echo y | android update sdk -a -u -f -t android-18
+RUN echo y | android update sdk -a -u -f -t sysimg-18
+RUN echo y | android update sdk -a -u -f -t android-17
+RUN echo y | android update sdk -a -u -f -t sysimg-17
+RUN echo y | android update sdk -a -u -f -t addon-google_apis-google-19
+RUN echo y | android update sdk -a -u -f -t extra-google-m2repository
+RUN echo y | android update sdk -a -u -f -t extra-android-m2repository
+
+
 # Set up and run emulator
 RUN echo no | android create avd -t "Google Inc.:Google APIs:17" -c 512M -s 480x800 -n test
 #Enabled hardware keyboard
