@@ -11,7 +11,7 @@ RUN apt-get clean
 RUN rm -rf /opt/android-sdk-linux/temp
 RUN rm -rf /opt/android-sdk-linux/platform-tools
 
-RUN ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | android update sdk
+RUN ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | android update sdk --no-ui
 # Set up and run emulator
 RUN echo no | android create avd -t "Google Inc.:Google APIs:17" -c 512M -s 480x800 -n test
 #Enabled hardware keyboard
