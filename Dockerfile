@@ -2,6 +2,7 @@ FROM ksoichiro/android
 
 MAINTAINER Subho "subho.halder@gmail.com"
 
+RUN     apt-get update
 RUN     apt-get install -y --no-install-recommends x11vnc xvfb libncurses5:i386 libstdc++6:i386
 
 # Cleaning
