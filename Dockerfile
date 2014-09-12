@@ -2,8 +2,10 @@ FROM ksoichiro/android
 
 MAINTAINER Subho "subho.halder@gmail.com"
 
-RUN     apt-get update -y
-RUN     apt-get install -y x11vnc xvfb libncurses5:i386 libstdc++6:i386
+RUN     apt-get install -y --no-install-recommends x11vnc xvfb libncurses5:i386 libstdc++6:i386
+
+# Cleaning
+RUN apt-get clean
 
 RUN rm -rf /opt/android-sdk-linux/temp
 RUN rm -rf /opt/android-sdk-linux/platform-tools
