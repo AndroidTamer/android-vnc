@@ -8,8 +8,8 @@ RUN     apt-get install -y --no-install-recommends x11vnc xvfb libncurses5:i386 
 # Cleaning
 RUN apt-get clean
 
-RUN rm -rf /opt/android-sdk-linux/temp
-RUN rm -rf /opt/android-sdk-linux/platform-tools
+#RUN rm -rf /opt/android-sdk-linux/temp
+#RUN rm -rf /opt/android-sdk-linux/platform-tools
 
 RUN ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | android update sdk --no-ui
 # Set up and run emulator
