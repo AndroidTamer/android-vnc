@@ -12,6 +12,8 @@ RUN ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | android update sdk --
 
 # Set up and run emulator
 RUN echo no | android create avd -t "Google Inc.:Google APIs:17" -c 512M -s 480x800 -n test
+#Enabled hardware keyboard
+RUN echo "hw.keyboard=yes" >> ~/.android/avd/test.avd/config.ini
 # Avoid emulator assumes HOME as '/'.
 ENV HOME /root
 
