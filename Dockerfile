@@ -15,15 +15,17 @@ RUN echo y | android update sdk -a -u -f -t tools
 RUN echo y | android update sdk -a -u -f -t platform-tools
 RUN echo y | android update sdk -a -u -f -t build-tools-20.0.0
 RUN echo y | android update sdk -a -u -f -t android-19
-RUN echo y | android update sdk -a -u -f -t sysimg-19
+RUN echo y | android update sdk -a -u -f -t sys-img-armeabi-v7a-android-19
 RUN echo y | android update sdk -a -u -f -t android-18
-RUN echo y | android update sdk -a -u -f -t sysimg-18
+RUN echo y | android update sdk -a -u -f -t sys-img-armeabi-v7a-android-18
 RUN echo y | android update sdk -a -u -f -t android-17
-RUN echo y | android update sdk -a -u -f -t sysimg-17
+RUN echo y | android update sdk -a -u -f -t sys-img-armeabi-v7a-android-17
+RUN echo y | android update sdk -a -u -f -t addon-google_apis-google-17
+RUN echo y | android update sdk -a -u -f -t addon-google_apis-google-18
 RUN echo y | android update sdk -a -u -f -t addon-google_apis-google-19
-RUN echo y | android update sdk -a -u -f -t extra-google-m2repository
 RUN echo y | android update sdk -a -u -f -t extra-android-m2repository
-
+RUN echo y | android update sdk -a -u -f -t extra-google-m2repository
+RUN echo y | android update sdk -a -u -f -t extra-google-google_play_services
 
 # Set up and run emulator
 RUN echo no | android create avd -t "Google Inc.:Google APIs:17" -c 512M -s 480x800 -n test
