@@ -1,31 +1,35 @@
-FROM ksoichiro/android
+FROM ubuntu:12.04
 
 MAINTAINER Subho "subho.halder@gmail.com"
 
-RUN     apt-get update
-RUN     apt-get install -y --no-install-recommends x11vnc xvfb libncurses5:i386 libstdc++6:i386
+RUN     apt-get update -qq
+RUN     apt-get install -y --no-install-recommends x11vnc xvfb libncurses5:i386 libstdc++6:i386 openjdk-7-jdk ia32-libs ia32-libs-multiarch git ssh
 
-# Cleaning
-RUN apt-get clean
+# Main Android SDK
+RUN apt-get install -y --no-install-recommends wget
+RUN cd /opt && wget -q http://dl.google.com/android/android-sdk_r22.6.2-linux.tgz
+RUN cd /opt && tar xzf android-sdk_r22.6.2-linux.tgz
+RUN cd /opt && rm -f android-sdk_r22.6.2-linux.tgz
 
-RUN rm -rf /opt/android-sdk-linux/temp
-RUN rm -rf /opt/android-sdk-linux/platform-tools
+# Other tools and resources of Android SDK
+ENV ANDROID_HOME /opt/android-sdk-linux
+ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+
 
 RUN echo y | android update sdk -a -u -f -t tools
 RUN echo y | android update sdk -a -u -f -t platform-tools
-RUN echo y | android update sdk -a -u -f -t build-tools-20.0.0
+RUN echo y | android update sdk -a -u -f -t build-tools-19.1.0
 RUN echo y | android update sdk -a -u -f -t android-19
-RUN echo y | android update sdk -a -u -f -t sys-img-armeabi-v7a-android-19
+RUN echo y | android update sdk -a -u -f -t sysimg-19
 RUN echo y | android update sdk -a -u -f -t android-18
-RUN echo y | android update sdk -a -u -f -t sys-img-armeabi-v7a-android-18
+RUN echo y | android update sdk -a -u -f -t sysimg-18
 RUN echo y | android update sdk -a -u -f -t android-17
-RUN echo y | android update sdk -a -u -f -t sys-img-armeabi-v7a-android-17
-RUN echo y | android update sdk -a -u -f -t addon-google_apis-google-17
-RUN echo y | android update sdk -a -u -f -t addon-google_apis-google-18
+RUN echo y | android update sdk -a -u -f -t sysimg-17
 RUN echo y | android update sdk -a -u -f -t addon-google_apis-google-19
-RUN echo y | android update sdk -a -u -f -t extra-android-m2repository
+RUN echo y | android update sdk -a -u -f -t addon-google_apis-google-18
+RUN echo y | android update sdk -a -u -f -t addon-google_apis-google-17
 RUN echo y | android update sdk -a -u -f -t extra-google-m2repository
-RUN echo y | android update sdk -a -u -f -t extra-google-google_play_services
+RUN echo y | android update sdk -a -u -f -t extra-android-m2repository
 
 # Set up and run emulator
 RUN echo no | android create avd -t "Google Inc.:Google APIs:17" -c 512M -s 480x800 -n test
