@@ -2,7 +2,7 @@ FROM ubuntu:12.04
 
 MAINTAINER Subho "subho.halder@gmail.com"
 
-RUN     apt-get update -qq
+RUN     apt-get update -y
 RUN     apt-get install -y --no-install-recommends x11vnc xvfb libncurses5:i386 libstdc++6:i386 openjdk-7-jdk ia32-libs ia32-libs-multiarch git ssh
 
 # Main Android SDK
