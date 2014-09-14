@@ -19,13 +19,10 @@ ENV HOME /root
 
 RUN echo y | android update sdk -a -u -f -t tools
 RUN echo y | android update sdk -a -u -f -t platform-tools
-RUN echo y | android update sdk -a -u -f -t build-tools-19.1.0
+RUN echo y | android update sdk -a -u -f -t build-tools-20.0.0
 RUN echo y | android update sdk -a -u -f -t android-19
-RUN echo y | android update sdk -a -u -f -t sysimg-19
 RUN echo y | android update sdk -a -u -f -t android-18
-RUN echo y | android update sdk -a -u -f -t sysimg-18
 RUN echo y | android update sdk -a -u -f -t android-17
-RUN echo y | android update sdk -a -u -f -t sysimg-17
 RUN echo y | android update sdk -a -u -f -t addon-google_apis-google-19
 RUN echo y | android update sdk -a -u -f -t addon-google_apis-google-18
 RUN echo y | android update sdk -a -u -f -t addon-google_apis-google-17
