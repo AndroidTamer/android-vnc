@@ -7,7 +7,7 @@ RUN     apt-get install -y --no-install-recommends x11vnc xvfb libncurses5:i386 
 
 # Main Android SDK
 RUN apt-get install -y --no-install-recommends wget
-RUN cd /opt && wget -q http://dl.google.com/android/android-sdk_r23.0.2-linux.tgz
+RUN cd /opt && wget http://dl.google.com/android/android-sdk_r23.0.2-linux.tgz
 RUN cd /opt && tar xzf android-sdk_r23.6.2-linux.tgz
 RUN cd /opt && rm -f android-sdk_r23.6.2-linux.tgz
 
