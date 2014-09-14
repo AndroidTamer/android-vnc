@@ -36,8 +36,6 @@ RUN echo y | android update sdk -a -u -f -t extra-android-m2repository
 RUN echo no | android create avd -t "Google Inc.:Google APIs:17" -c 512M -s 480x800 -n test
 #Enabled hardware keyboard
 RUN echo "hw.keyboard=yes" >> ~/.android/avd/test.avd/config.ini
-# Avoid emulator assumes HOME as '/'.
-ENV HOME /root
 
 # Install vnc, xvfb in order to create a 'fake' display and firefox
 RUN     mkdir ~/.vnc
