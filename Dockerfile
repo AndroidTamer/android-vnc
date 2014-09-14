@@ -48,3 +48,5 @@ EXPOSE 5900
 
 ADD launch.sh /usr/local/bin/launch
 RUN chmod 755 /usr/local/bin/launch
+
+RUN     apt-get cleanup
