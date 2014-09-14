@@ -14,6 +14,7 @@ RUN cd /opt && rm -f android-sdk_r23.0.2-linux.tgz
 # Other tools and resources of Android SDK
 ENV ANDROID_HOME /opt/android-sdk-linux
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+ENV HOME /root
 
 
 RUN echo y | android update sdk -a -u -f -t tools
